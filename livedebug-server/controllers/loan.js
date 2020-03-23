@@ -2,7 +2,9 @@ const { Loan } = require('../models');
 
 class LoanController {
   static create(req, res, next) {
+    
     const { MemberId, BookId, date_loaned } = req.body;
+    console.log(MemberId,BookId,date_loaned)
     Loan.create({ MemberId, BookId, date_loaned })
       .then(function(newLoan) {
         res.status(201).json(newLoan);
